@@ -4,6 +4,7 @@ export default defineNuxtConfig({
   modules  : [
     '@pinia/nuxt',
     '@nuxtjs/eslint-module',
+    '@pinia-plugin-persistedstate/nuxt',
   ],
   eslint: {
     fix: true,
