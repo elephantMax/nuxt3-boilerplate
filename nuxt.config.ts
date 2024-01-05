@@ -9,4 +9,9 @@ export default defineNuxtConfig({
   eslint: {
     fix: true,
   },
+  runtimeConfig: {
+    public: {
+      API_BASE_URL: process.env.API_BASE_URL,
+    },
+  },
 });
