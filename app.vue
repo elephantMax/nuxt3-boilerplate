@@ -1,5 +1,8 @@
 <script setup lang="ts">
 
+const exampleStore = useExampleStore();
+
+// api client case
 const { data, error } = await useAsyncData(async (app) => {
   if (!app?.$api) {
     return null;
@@ -12,6 +15,14 @@ const { data, error } = await useAsyncData(async (app) => {
     example: false,
   });
 });
+
+// store case
+await useAsyncData(async () => exampleStore.exampleAction({
+  param1 : '1',
+  param2 : '2',
+}, {
+  example: false,
+}));
 </script>
 
 <template>

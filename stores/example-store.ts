@@ -1,3 +1,5 @@
+import type { ExampleBody, ExampleParams } from '~/api/services/example-service';
+
 export const useExampleStore = defineStore('example', {
   state() {
     return {
@@ -5,14 +7,9 @@ export const useExampleStore = defineStore('example', {
     };
   },
   actions: {
-    async exampleAction() {
+    async exampleAction(params: ExampleParams, body: ExampleBody) {
       try {
-        const response = await this.$api.example.exampleRequest({
-          param1 : 'test',
-          param2 : 'test',
-        }, {
-          example: true,
-        });
+        const response = await this.$api.example.exampleRequest(params, body);
         // validated data
         console.log(response.data);
       } catch (error) {
